@@ -2,13 +2,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-const { setTokenuser, removeTokenuser, setTokenadmin, removeTokenadmin, getTokenuser } = require('./middlewares/dataStore')
+const { setTokenuser, removeTokenuser, setTokenadmin, removeTokenadmin, getTokenuser, getTokenadmin } = require('./middlewares/dataStore')
 const { v4: uuidv4 } = require('uuid');
 const PORT = 4112
 require('./dbConnect');
 const user = require('./models/user');
-const admin = require('./models/user');
-const {checkAdminLogin} = require('./middlewares/auth');
+const admin = require('./models/admin');
+const {checkAdminLogin} = require("./middlewares/auth")
 const userRoute = require("./routes/userRoutes")
 
 app.set('view engine','ejs')
@@ -17,7 +17,7 @@ app.use(bodyParser())
 app.use(cookieParser())
 
 app.use("/",userRoute)
-app.use("/admin",require('./routes/adminRoutes'))
+app.use("/admin",checkAdminLogin,require('./routes/adminRoutes'))
 
 
 app.get("/login",(req,res) => {
@@ -66,18 +66,18 @@ app.post("/login",async(req,res) => {
 
 
 app.post("/logout",(req,res) => {
-    // const user = getTokenuser(req.cookies.uid);
-    // const admin = getTokenuser(req.cookies.adminId);
-    // if(admin){
-    //     removeTokenadmin(req.cookies.adminId);
-    //     res.clearCookie('adminId');
-    //     res.redirect('/login');
-    // }
-    // if(user){
+    const user = getTokenuser(req.cookies.uid);
+    const admin = getTokenadmin(req.cookies.adminId);
+    if(admin){
+        removeTokenadmin(req.cookies.adminId);
+        res.clearCookie('adminId');
+        res.redirect('/login');
+    }
+    if(user){
         removeTokenuser(req.cookies.uid);
         res.clearCookie('uid');
         res.redirect('/login');
-    // }
+    }
 })
 
 app.listen(PORT,() => {

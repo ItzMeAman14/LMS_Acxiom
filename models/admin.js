@@ -7,6 +7,6 @@ const adminSchema = mongoose.Schema({
     role:String
 })
 
-const admin = mongoose.model("admins",userSchema)
+const admin = mongoose.model("admins",adminSchema)
 
 module.exports = admin

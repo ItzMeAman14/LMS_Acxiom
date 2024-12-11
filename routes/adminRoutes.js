@@ -1,35 +1,42 @@
-const express = require('express')
+const express = require('express');
+const { getTokenadmin } = require('../middlewares/dataStore');
 const routerAdmin = express.Router()
 
 
 routerAdmin.get("/",(req,res) => {
-    const user = req.cookies.uid;
+    const user = getTokenadmin(req.cookies.adminId);
     res.render('../views/adminHome',{role:user.role})
 })
 
 //Maintainance
 routerAdmin.get('/maintainance',(req,res) => {
-    res.render('../views/maintainance')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/maintainance',{role:user.role})
 })
 
 routerAdmin.get('/maintainance/addMembership',(req,res) => {
-    res.render('../views/addMembership')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/addMembership',{role:user.role})
 })
 
 routerAdmin.get('/maintainance/updateMembership',(req,res) => {
-    res.render('../views/updateMembership')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/updateMembership',{role:user.role})
 })
 
 routerAdmin.get('/maintainance/addbm',(req,res) => {
-    res.render('../views/addBook')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/addBook',{role:user.role})
 })
 
 routerAdmin.get('/maintainance/updatebm',(req,res) => {
-    res.render('../views/updateBook')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/updateBook',{role:user.role})
 })
 
 routerAdmin.get('/maintainance/userManagement',(req,res) => {
-    res.render('../views/userManagement')
+    const user = getTokenadmin(req.cookies.adminId);
+    res.render('../views/userManagement',{role:user.role})
 })
 
 
