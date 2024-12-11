@@ -1,0 +1,31 @@
+
+<%- include("./partial/header") %>
+
+<ul class="nav justify-content-center">
+
+  <div class="dropdown">
+    <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Membership
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/admin/maintainance/addMembership">Add</a></li>
+      <li><a class="dropdown-item" href="/admin/maintainance/updateMembership">Update</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Books/Movies
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/admin/maintainance/addbm">Add</a></li>
+      <li><a class="dropdown-item" href="/admin/maintainance/updatebm">Update</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <a href="/admin/maintainance/userManagement" class="nav-link">User Management</a>
+  </div>
+</ul>
+
+<%- include("./partial/footer") %>

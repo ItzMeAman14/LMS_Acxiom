@@ -1,0 +1,52 @@
+
+<%- include("./partial/header") %>
+
+
+<%- include("./adminNavbar") %>
+
+<%- include('./maintainanceNavbar') %>
+
+<div class="container my-3">
+    <h1 align="center">User Management</h1>
+
+    <form>
+        
+        <div class="mb-3">
+            <div class="mb-1">
+                Choose
+            </div>
+            <span class="mx-2">
+                <label for="newUser" class="form-label">New User</label>
+                <input type="radio" name="user" id="newUser">
+            </span>
+            
+            <span class="mx-3">
+                <label for="existingUser" class="form-label">Existing User</label>
+                <input type="radio" name="user" id="existingUser">
+            </span>
+            
+        </div>
+        
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" id="name">
+        </div>
+    
+          <div class="mb-3">
+            <label for="status" class="form-label">Status --- </label>
+            <span>
+                <label for="status" class="form-label">Active</label>
+            </span>
+            <input type="checkbox" name="active" id="status">
+          </div>
+
+          <div class="mb-3">
+            <label for="admin" class="form-label">Admin</label>
+            <input type="checkbox" name="admin" id="admin">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%- include("./partial/footer") %>

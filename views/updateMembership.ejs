@@ -1,0 +1,59 @@
+
+<%- include("./partial/header") %>
+
+
+<%- include("./adminNavbar") %>
+
+<%- include('./maintainanceNavbar') %>
+
+<div class="container my-3">
+    <h1 align="center">Update Membership</h1>
+
+    <form>
+
+          <div class="mb-3">
+            <label for="membershipNo" class="form-label">Membership Number</label>
+            <input type="text" class="form-control" name="membershipNo" id="membershipNo">
+          </div>
+
+          <div class="mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" class="form-control" name="startDate" id="startDate">
+          </div>
+
+          <div class="mb-3">
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="date" class="form-control" name="endDate" id="endDate">
+          </div>
+
+          <div class="mb-3">
+            <div class="mb-1">
+                Membership Extension
+            </div>
+            <span class="mx-2">
+                <label for="sixMonth" class="form-label">Six Month</label>
+                <input type="radio" name="duration" id="sixMonth">
+            </span>
+
+            <span class="mx-3">
+                <label for="oneYear" class="form-label">One Year</label>
+                <input type="radio" name="duration" id="oneYear">
+            </span>
+
+            <span class="mx-3">
+                <label for="twoYear" class="form-label">Two Years</label>
+                <input type="radio" name="duration" id="twoYear">
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="removeMembership" class="form-label">Membership Remove</label>
+            <input type="radio" name="removeMembership" id="removeMembership">
+          </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+
+<%- include("./partial/footer") %>
