@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const { setTokenuser, removeTokenuser, setTokenadmin, removeTokenadmin, getTokenuser, getTokenadmin } = require('./middlewares/dataStore')
 const { v4: uuidv4 } = require('uuid');
@@ -13,12 +12,13 @@ const userRoute = require("./routes/userRoutes")
 
 app.set('view engine','ejs')
 
-app.use(bodyParser())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 app.use("/",userRoute)
 app.use("/admin",checkAdminLogin,require('./routes/adminRoutes'))
-
+app.use('/',require('./routes/postRoutes'))
 
 app.get("/login",(req,res) => {
     res.render("../views/login")

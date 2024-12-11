@@ -9,20 +9,20 @@
 <div class="container my-3">
     <h1 align="center">Add Book/Movie</h1>
 
-    <form>
+    <form action="/addBook" method="post">
         
         <div class="mb-3">
             <div class="mb-1">
                 Choose
             </div>
             <span class="mx-2">
-                <label for="sixMonth" class="form-label">Book</label>
-                <input type="radio" name="duration" id="sixMonth">
+                <label for="book" class="form-label">Book</label>
+                <input type="radio" name="role" id="book" value="book" checked>
             </span>
             
             <span class="mx-3">
-                <label for="oneYear" class="form-label">Movie</label>
-                <input type="radio" name="duration" id="oneYear">
+                <label for="movies" class="form-label">Movie</label>
+                <input type="radio" name="role" value="movie" id="movies">
             </span>
             
         </div>

@@ -1,32 +1,68 @@
 <%- include("./transactionUser") %>
 
-<div class="container my-5">
+    <div class="container my-5">
 
-    <h1 align="center" style="text-decoration: underline;">Issue Book</h1>
-    <form>
-        <div class="mb-3">
-            <label for="bookName" class="form-label">Enter Book Name</label>
-            <input type="text" class="form-control" name="bookName" id="bookName" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-        <label for="authorName" class="form-label">Enter Author Name</label>
-        <input type="text" class="form-control" name="authorName" id="authorName">
-    </div>
-    <div class="mb-3">
-        <label for="issueDate" class="form-label">Issue Date</label>
-        <input type="date" class="form-control" name="issueDate" id="issueDate">
-    </div>
-    <div class="mb-3">
-        <label for="returnDate" class="form-label">Return Date</label>
-        <input type="date" class="form-control" name="returnDate" id="returnDate">
-    </div>
+        <h1 align="center" style="text-decoration: underline;">Issue Book</h1>
+        <form>
+            <div class="mb-3">
+                <label for="bookName" class="form-label">Enter Book Name</label>
+                <input type="text" class="form-control" name="bookName" id="bookName" required>
+            </div>
+            <div class="mb-3">
+                <label for="authorName" class="form-label">Enter Author Name</label>
+                <input type="text" class="form-control" name="authorName" id="authorName">
+            </div>
+            <div class="mb-3">
+                <label for="issueDate" class="form-label">Issue Date</label>
+                <input type="date" class="form-control" name="issueDate" min="" id="issueDate">
+            </div>
+            <div class="mb-3">
+                <label for="returnDate" class="form-label">Return Date</label>
+                <input type="date" class="form-control" name="returnDate" max="" id="returnDate">
+            </div>
 
-    <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="remarks" style="height: 100px"></textarea>
-        <label for="remarks">Remarks</label>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Leave a comment here" id="remarks"
+                    style="height: 100px"></textarea>
+                <label for="remarks">Remarks</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <script>
+            // calculating min date for issueDate and return date
+            const today = new Date();
+            const minYear = today.getFullYear();
+            let minMonth = today.getMonth() + 1;
+            let minday = today.getDate();
+
+            if (minMonth < 10) {
+                mm = '0' + mm;
+            }
+            if (minday < 10) {
+                dd = '0' + dd;
+            }
+
+            const formattedDate = minYear + '-' + minMonth + '-' + minday;
+            document.getElementById('issueDate').min = formattedDate;
+            document.getElementById('returnDate').min = formattedDate;
+
+            // calculating maximum date for returning
+            today.setDate(today.getDate() + 15)
+            const maxyear = today.getFullYear();
+            const maxMonth = today.getMonth() + 1;
+            const maxday = today.getDate();
+
+            if (maxMonth < 10) {
+                maxMonth = '0' + maxMonth;
+            }
+            if (maxday < 10) {
+                maxday = '0' + maxday;
+            }
+            const maxDate = maxyear + '-' + maxMonth + '-' + maxday;
+            document.getElementById('returnDate').max = maxDate
+
+        </script>
+
+
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
-</div>

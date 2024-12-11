@@ -9,7 +9,7 @@
 <div class="container my-3">
     <h1 align="center">Add Membership</h1>
 
-    <form>
+    <form action="/addMembership" method="post">
         <div class="mb-3">
           <label for="firstName" class="form-label">First Name</label>
           <input type="text" class="form-control" name="firstName" id="firstName">
@@ -52,17 +52,17 @@
             </div>
             <span class="mx-2">
                 <label for="sixMonth" class="form-label">Six Month</label>
-                <input type="radio" name="duration" id="sixMonth">
+                <input type="radio" name="duration" id="sixMonth" value="6m" checked>
             </span>
 
             <span class="mx-3">
                 <label for="oneYear" class="form-label">One Year</label>
-                <input type="radio" name="duration" id="oneYear">
+                <input type="radio" name="duration" value="1y" id="oneYear">
             </span>
 
             <span class="mx-3">
                 <label for="twoYear" class="form-label">Two Years</label>
-                <input type="radio" name="duration" id="twoYear">
+                <input type="radio" name="duration" value="2y" id="twoYear">
             </span>
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
