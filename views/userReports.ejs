@@ -1,0 +1,36 @@
+
+<%- include('./partial/header') %>
+
+<%- include('./userNavbar') %>
+
+    <div class="container my-5">
+
+        <h1 align="center">Available Reports</h1>
+
+
+        <table class="table table-striped table-hover my-3" border="2">
+            <tbody>
+                    <tr>
+                        <td><a href="/user/reports/masterBooks">Master List of Books</a></td>
+                    </tr>
+                <tr>
+                    <td><a href="/user/reports/masterMovies">Master List of Movies</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/user/reports/masterMember">Master List of Memberships</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/user/reports/masterBooks">Active Issues</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/user/reports/masterBooks">Overdue Returns</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/user/reports/masterBooks">Pending Issue Requests</a></td>
+                </tr>
+            </tbody>
+          </table>
+
+    </div>
+
+<%- include('./partial/footer') %>

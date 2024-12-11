@@ -1,0 +1,36 @@
+<%- include("./transactionUser") %>
+
+<div class="container my-5">
+
+    <h1 align="center" style="text-decoration: underline;">Return Book</h1>
+    <form>
+        <div class="mb-3">
+            <label for="bookName" class="form-label">Enter Book Name</label>
+            <input type="text" class="form-control" name="bookName" id="bookName" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="authorName" class="form-label">Enter Author Name</label>
+        <input type="text" class="form-control" name="authorName" id="authorName">
+    </div>
+    <div class="mb-3">
+        <label for="serialno" class="form-label">Serial No</label>
+        <input type="text" class="form-control" name="serialno" id="serialno" required>
+    </div>
+    <div class="mb-3">
+        <label for="issueDate" class="form-label">Issue Date</label>
+        <input type="date" class="form-control" name="issueDate" id="issueDate">
+    </div>
+    <div class="mb-3">
+        <label for="returnDate" class="form-label">Return Date</label>
+        <input type="date" class="form-control" name="returnDate" id="returnDate">
+    </div>
+    
+    <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="remarks" style="height: 100px"></textarea>
+        <label for="remarks">Remarks</label>
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+</div>
